@@ -5,8 +5,19 @@ import Link from 'next/link'
 import path from 'path'
 import { postFilePaths, POSTS_PATH } from '../utils/mdxUtils'
 
+interface Post {
+  content: string
+  data: {
+    [key: string]: any
+  }
+  filePath: string
+}
 
-export const Home = ({ posts }): JSX.Element => (
+interface HomeProps {
+  posts: Post[]
+}
+
+export const Home = ({ posts }: HomeProps): JSX.Element => (
   <div>
     <Head>
       <title>Devon Wells</title>
@@ -34,7 +45,7 @@ export const Home = ({ posts }): JSX.Element => (
 
 export default Home
 
-export function getStaticProps() {
+export function getStaticProps(): { props: HomeProps } {
   const posts = postFilePaths.map((filePath) => {
     const source = fs.readFileSync(path.join(POSTS_PATH, filePath))
     const { content, data } = matter(source)
