@@ -4,6 +4,8 @@ module.exports = {
   moduleFileExtensions: ['ts', 'tsx', 'js', 'json', 'jsx'],
   testPathIgnorePatterns: ['<rootDir>[/\\\\](node_modules|.next)[/\\\\]'],
   transformIgnorePatterns: ['[/\\\\]node_modules[/\\\\].+\\.(ts|tsx)$'],
+  testTimeout: 500,
+  modulePaths: ['<rootDir>'],
   transform: {
     '^.+\\.(ts|tsx)$': 'babel-jest',
   },
@@ -15,4 +17,4 @@ module.exports = {
     '\\.(css|less|sass|scss)$': 'identity-obj-proxy',
     '\\.(gif|ttf|eot|svg|png)$': '<rootDir>/test/__mocks__/fileMock.js',
   },
-}
+};

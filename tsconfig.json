@@ -26,9 +26,9 @@
       // "hooks/*": ["./src/hooks/*"],
       // "mock-data/*": ["./src/mock-data/*"],
       "pages/*": ["./src/pages/*"],
-      // "styles/*": ["./src/styles/*"],
+      "styles/*": ["./src/styles/*"],
       "tests/*": ["./tests/*"],
-      // "types/*": ["./src/types/*"],
+      "types/*": ["./src/types/*"],
       "utils/*": ["./src/utils/*"]
     }
   },

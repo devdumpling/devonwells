@@ -1,20 +1,20 @@
-import fs from 'fs'
-import matter from 'gray-matter'
-import { MDXRemote } from 'next-mdx-remote'
-import { serialize } from 'next-mdx-remote/serialize'
-import Link from 'next/link'
-import path from 'path'
-import { PostPageProps } from 'types/posts'
-import { postFilePaths, POSTS_PATH } from '../../utils/mdxUtils'
+import fs from 'fs';
+import path from 'path';
+
+import matter from 'gray-matter';
+import Link from 'next/link';
+import { MDXRemote } from 'next-mdx-remote';
+import { serialize } from 'next-mdx-remote/serialize';
+import { PostPageProps } from 'src/types/posts';
+
+import { postFilePaths, POSTS_PATH } from '../../utils/mdxUtils';
 
 const PostPage = ({ source, frontMatter }: PostPageProps): JSX.Element => {
   return (
     <div>
       <header>
         <nav>
-          <Link href="/">
-            <a>👈 Go back home</a>
-          </Link>
+          <Link href="/">Go Back Home</Link>
         </nav>
       </header>
       <div className="post-header">
@@ -40,14 +40,14 @@ const PostPage = ({ source, frontMatter }: PostPageProps): JSX.Element => {
         }
       `}</style>
     </div>
-  )
-}
+  );
+};
 
 export const getStaticProps = async ({ params }) => {
-  const postFilePath = path.join(POSTS_PATH, `${params.slug}.mdx`)
-  const source = fs.readFileSync(postFilePath)
+  const postFilePath = path.join(POSTS_PATH, `${params.slug}.mdx`);
+  const source = fs.readFileSync(postFilePath);
 
-  const { content, data } = matter(source)
+  const { content, data } = matter(source);
 
   const mdxSource = await serialize(content, {
     // Optionally pass remark/rehype plugins
@@ -56,27 +56,27 @@ export const getStaticProps = async ({ params }) => {
       rehypePlugins: [],
     },
     scope: data,
-  })
+  });
 
   return {
     props: {
       source: mdxSource,
       frontMatter: data,
     },
-  }
-}
+  };
+};
 
 export const getStaticPaths = async () => {
   const paths = postFilePaths
     // Remove file extensions for page paths
-    .map((path) => path.replace(/\.mdx?$/, ''))
+    .map((_path) => _path.replace(/\.mdx?$/, ''))
     // Map the path into the static paths object required by Next.js
-    .map((slug) => ({ params: { slug } }))
+    .map((slug) => ({ params: { slug } }));
 
   return {
     paths,
     fallback: false,
-  }
-}
+  };
+};
 
-export default PostPage
+export default PostPage;

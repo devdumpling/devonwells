@@ -1,16 +1,38 @@
 {
-  "parser": "@typescript-eslint/parser",
-  "plugins": ["@typescript-eslint"],
+  "plugins": [
+    "import",
+    "react",
+    "@typescript-eslint",
+    "prettier",
+    "simple-import-sort",
+    "jsx-a11y",
+    "react-hooks"
+  ],
   "extends": [
     "eslint:recommended",
     "plugin:react/recommended",
     "plugin:@typescript-eslint/recommended",
-    // Uncomment the following lines to enable eslint-config-prettier
-    // Is not enabled right now to avoid issues with the Next.js repo
-    "prettier"
+    "plugin:import/errors",
+    "plugin:import/warnings",
+    "plugin:import/typescript",
+    "airbnb-typescript",
+    "airbnb/hooks",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:jsx-a11y/strict",
+    "prettier",
+    "plugin:prettier/recommended"
   ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 12,
+    "sourceType": "module",
+    "project": "./tsconfig.json"
+  },
   "env": {
-    "es6": true,
+    "es2021": true,
     "browser": true,
     "jest": true,
     "node": true
@@ -31,16 +53,48 @@
     "@typescript-eslint/no-explicit-any": 0,
     "@typescript-eslint/no-var-requires": 0,
     "@typescript-eslint/no-use-before-define": 0,
+    "@typescript-eslint/semi": ["error"],
+    "react/no-unescaped-entities": 0,
+    "react/require-default-props": 0,
+    "react-hooks/exhaustive-deps": 1,
+    "semi": "off",
+    "simple-import-sort/exports": "error",
+    "simple-import-sort/imports": [
+      "error",
+      {
+        "groups": [
+          // Node.js builtins. You could also generate this regex if you use a `.js` config.
+          // For example: `^(${require("module").builtinModules.join("|")})(/|$)`
+          [
+            "^(assert|buffer|child_process|cluster|console|crypto|dgram|dns|domain|events|fs|http|https|module|net|os|path|punycode|querystring|readline|repl|stream|string_decoder|sys|timers|tls|tty|url|util|vm|zlib|freelist|v8|process|async_hooks|http2|perf_hooks)(/.*|$)"
+          ],
+          // Packages. `react` related packages come first.
+          ["^react", "^@storybook", "^styled-components"],
+          // External packages then Side effect imports
+          [
+            "^@?(?!components|constants|hooks|pages|styles|tests|utilities)",
+            "^\\u0000"
+          ],
+          // Internal packages then Parent imports. Put `..` last.
+          [
+            "^(atoms|molecules|styles|utilities|types|icons|components|constants|hooks|pages|styles|tests|utilities)(/.*|$)",
+            "^\\.\\.(?!/?$)",
+            "^\\.\\./?$"
+          ],
+          // Other relative imports. Put same-folder imports and `.` last.
+          ["^\\./(?=.*/)(?!/?$)", "^\\.(?!/?$)", "^\\./?$"],
+          // Style imports.
+          ["^.+\\.s?css$"]
+        ]
+      }
+    ],
+    "sort-imports": 0,
+    "no-console": "off",
+    "@typescript-eslint/explicit-module-boundary-types": 0,
     "@typescript-eslint/no-unused-vars": [
       2,
       {
         "argsIgnorePattern": "^_"
-      }
-    ],
-    "no-console": [
-      2,
-      {
-        "allow": ["warn", "error"]
       }
     ]
   }
