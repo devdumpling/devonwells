@@ -22,9 +22,6 @@
     "baseUrl": ".",
     "paths": {
       "components/*": ["./src/components/*"],
-      // "constants/*": ["./src/constants/*"],
-      // "hooks/*": ["./src/hooks/*"],
-      // "mock-data/*": ["./src/mock-data/*"],
       "pages/*": ["./src/pages/*"],
       "styles/*": ["./src/styles/*"],
       "tests/*": ["./tests/*"],

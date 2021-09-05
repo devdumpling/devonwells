@@ -6,8 +6,7 @@ import Link from 'next/link';
 import { MDXRemote } from 'next-mdx-remote';
 import { serialize } from 'next-mdx-remote/serialize';
 import { PostPageProps } from 'src/types/posts';
-
-import { postFilePaths, POSTS_PATH } from '../../utils/mdxUtils';
+import { postFilePaths, POSTS_PATH } from 'utils/mdxUtils';
 
 const PostPage = ({ source, frontMatter }: PostPageProps): JSX.Element => {
   return (
