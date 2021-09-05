@@ -1,12 +1,17 @@
 import fs from 'fs'
 import matter from 'gray-matter'
-import { MDXRemote } from 'next-mdx-remote'
+import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote'
 import { serialize } from 'next-mdx-remote/serialize'
 import Link from 'next/link'
 import path from 'path'
 import { postFilePaths, POSTS_PATH } from '../../utils/mdxUtils'
 
-export default function PostPage({ source, frontMatter }) {
+interface PostPageProps {
+  source: MDXRemoteSerializeResult
+  frontMatter: { [key: string]: any }
+}
+
+const PostPage = ({ source, frontMatter }: PostPageProps): JSX.Element => {
   return (
     <div>
       <header>
@@ -77,3 +82,5 @@ export const getStaticPaths = async () => {
     fallback: false,
   }
 }
+
+export default PostPage

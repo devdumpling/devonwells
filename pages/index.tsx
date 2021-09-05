@@ -17,7 +17,7 @@ interface HomeProps {
   posts: Post[]
 }
 
-export const Home = ({ posts }: HomeProps): JSX.Element => (
+const Home = ({ posts }: HomeProps): JSX.Element => (
   <div>
     <Head>
       <title>Devon Wells</title>
