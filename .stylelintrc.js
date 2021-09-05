@@ -59,4 +59,4 @@ module.exports = {
     ],
     'csstools/use-nesting': 'always',
   },
-}
+};
