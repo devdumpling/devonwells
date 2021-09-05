@@ -2,16 +2,19 @@
   "presets": ["next/babel"],
   "plugins": [
     ["styled-components", { "ssr": true }],
-    ["module-resolver", {
-      "root": ["./src"],
-      "alias": {
-        "components": "./src/components",                        
-        "pages": "./src/pages",
-        "styles": "./src/styles",
-        "tests": "./tests",
-        "types": "./src/types",
-        "utils": "./src/utils"
+    [
+      "module-resolver",
+      {
+        "root": ["./src"],
+        "alias": {
+          "components": "./src/components",
+          "pages": "./src/pages",
+          "styles": "./src/styles",
+          "tests": "./tests",
+          "types": "./src/types",
+          "utils": "./src/utils"
+        }
       }
-    }]
+    ]
   ]
 }
