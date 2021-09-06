@@ -1,6 +1,8 @@
 import fs from 'fs';
 import path from 'path';
 
+import styled from 'styled-components';
+
 import matter from 'gray-matter';
 import Link from 'next/link';
 import { MDXRemote } from 'next-mdx-remote';
@@ -8,37 +10,39 @@ import { serialize } from 'next-mdx-remote/serialize';
 import { PostPageProps } from 'src/types/posts';
 import { postFilePaths, POSTS_PATH } from 'utils/mdxUtils';
 
+import { SubText } from 'styles/styled';
+
+const Container = styled.div`
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  display: flex;
+  flex-direction: column;
+`;
+
+const Header = styled.header`
+  margin: 2rem 0;
+`;
+
+const PostBody = styled.section`
+  margin: 2rem 0;
+`;
+
 const PostPage = ({ source, frontMatter }: PostPageProps): JSX.Element => {
   return (
-    <div>
-      <header>
+    <Container>
+      <Header>
         <nav>
-          <Link href="/">Go Back Home</Link>
+          <Link href="/">Home</Link>
         </nav>
-      </header>
-      <div className="post-header">
-        <h1>{frontMatter.title}</h1>
-        {frontMatter.description && (
-          <p className="description">{frontMatter.description}</p>
-        )}
-      </div>
-      <main>
+      </Header>
+
+      <h1>{frontMatter.title}</h1>
+      {frontMatter.description && <SubText>{frontMatter.description}</SubText>}
+      <PostBody>
         <MDXRemote {...source} />
-      </main>
-
-      <style jsx>{`
-        .post-header h1 {
-          margin-bottom: 0;
-        }
-
-        .post-header {
-          margin-bottom: 2rem;
-        }
-        .description {
-          opacity: 0.6;
-        }
-      `}</style>
-    </div>
+      </PostBody>
+    </Container>
   );
 };
 

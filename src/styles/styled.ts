@@ -43,7 +43,7 @@ export const Card = styled.div`
   max-width: 800px;
   border-radius: 0.5rem;
   padding: 1rem;
-  border: 5px solid #333;
+  border: 10px solid #333;
   background-color: papayawhip;
 `;
 
@@ -61,4 +61,11 @@ export const PostList = styled.ul`
     margin: 0.5rem 0;
     text-decoration: none;
   }
+`;
+
+export const SubText = styled.p`
+  font-size: 1.5rem;
+  font-weight: 400;
+  margin: 0;
+  color: #999;
 `;

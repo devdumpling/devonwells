@@ -13,3 +13,33 @@ a {
   text-decoration: none;
   color: #333;
 }
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'SF Pro Display', 'SF Pro Icons', 'Helvetica Neue', 'Helvetica';
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    font-size: 4rem;
+}
+
+h2 {
+    font-size: 3rem;
+}
+
+h3 {
+    font-size: 1.5rem;
+}
+
+h4 {
+    font-size: 1.25rem;
+}
+
+h5 {
+    font-size: 1rem;
+}
+
+h6 {
+    font-size: 0.875rem;
+}
