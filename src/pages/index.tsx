@@ -74,7 +74,7 @@ const PostList = styled.ul`
 
 const Posts = ({ posts }: HomeProps) => (
   <div>
-    <Heading>Posts</Heading>
+    <Heading>posts</Heading>
     <PostList>
       {posts.map((post) => (
         <li key={post.filePath}>
@@ -92,7 +92,7 @@ const Posts = ({ posts }: HomeProps) => (
 
 const About = () => (
   <Stack>
-    <Heading>Hi, I'm Devon.</Heading>
+    <Heading>hi, i'm devon.</Heading>
     <BigText>
       i'm a software engineer in columbus, OH.{' '}
       <span role="img" aria-label="wave">
@@ -102,7 +102,7 @@ const About = () => (
     <SubHeading>
       mostly i'm doing the dad thing.
       <br />
-      sometimes i do web stuff
+      sometimes i do web stuff.
     </SubHeading>
     <h3>
       <a href="mailto:devon.wells@pm.me?subject=Hi Devon">devon.wells@pm.me</a>
