@@ -6,10 +6,11 @@ import Head from 'next/head';
 import 'styles/styles.css';
 
 const LocalGlobalStyle = createGlobalStyle`
-  #__next {
-    display: flex;
-    flex-flow: column;
-    min-height: 100%;
+  #__next {        
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
   }
 `;
 
