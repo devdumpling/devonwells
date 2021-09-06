@@ -3,6 +3,8 @@ import { createGlobalStyle } from 'styled-components';
 import type { AppProps } from 'next/app';
 import Head from 'next/head';
 
+import 'styles/styles.css';
+
 const LocalGlobalStyle = createGlobalStyle`
   #__next {
     display: flex;
