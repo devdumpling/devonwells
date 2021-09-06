@@ -28,7 +28,7 @@ const Heading = styled.h1`
 
 const SubHeading = styled.h2`
   font-size: 3rem;
-  font-weight: 600;
+  font-weight: 400;
   margin: 0;
   color: #999;
 `;
@@ -58,7 +58,7 @@ const Card = styled.div`
 
 const BigText = styled.h2`
   font-size: 3rem;
-  font-weight: 600;
+  font-weight: 400;
   margin: 0;
   color: #333;
 `;
