@@ -36,8 +36,9 @@ const SubHeading = styled.h2`
 const Container = styled.div`
   display: flex;
   flex-direction: column;
+  height: 100vh;
   align-items: left;
-  justify-content: center;
+  justify-content: space-around;
   margin: 0 auto;
   padding: 0 1rem;
   max-width: 800px;
