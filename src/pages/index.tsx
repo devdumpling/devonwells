@@ -4,6 +4,7 @@ import path from 'path';
 import { useRef, useState } from 'react';
 import styled from 'styled-components';
 
+import { a, config, useSpring } from '@react-spring/three';
 import { Sky, Stars } from '@react-three/drei';
 import { Canvas, MeshProps, useFrame } from '@react-three/fiber';
 import matter from 'gray-matter';
@@ -54,6 +55,11 @@ const Box = (props) => {
   const [hovered, setHover] = useState(false);
   const [active, setActive] = useState(false);
 
+  const { scale } = useSpring({
+    scale: hovered ? 1.5 : 1,
+    config: config.wobbly,
+  });
+
   // Subscribe this component to the render-loop, rotate the mesh every frame
   useFrame(() => {
     if (mesh && mesh.current) mesh.current.rotation.y += 0.02;
@@ -61,17 +67,17 @@ const Box = (props) => {
 
   // Return view, these are regular three.js elements expressed in JSX
   return (
-    <mesh
+    <a.mesh
       {...props}
       ref={mesh}
-      scale={active ? 1.5 : 1}
+      scale={scale}
       onClick={() => setActive(!active)}
       onPointerOver={() => setHover(true)}
       onPointerOut={() => setHover(false)}
     >
       <boxGeometry args={[0.5, 0.5, 0.5]} />
-      <meshPhysicalMaterial color={hovered ? 'salmon' : 'orange'} />
-    </mesh>
+      <meshPhongMaterial color={hovered ? 'salmon' : 'orange'} />
+    </a.mesh>
   );
 };
 
