@@ -94,15 +94,15 @@ const About = () => (
   <Stack>
     <Heading>Hi, I'm Devon.</Heading>
     <BigText>
-      I'm a software engineer dwelling in Columbus, OH.{' '}
+      i'm a software engineer in columbus, OH.{' '}
       <span role="img" aria-label="wave">
         👋
       </span>
     </BigText>
     <SubHeading>
-      Mostly, I work on web stuff.
+      mostly i'm doing the dad thing.
       <br />
-      I'm also doing the dad thing.
+      sometimes i do web stuff
     </SubHeading>
     <h3>
       <a href="mailto:devon.wells@pm.me?subject=Hi Devon">devon.wells@pm.me</a>
