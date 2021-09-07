@@ -1,3 +1,5 @@
+@import url('https://rsms.me/inter/inter.css');
+
 * {
   box-sizing: border-box;
 }
@@ -6,8 +8,8 @@ html,
 body,
 main,
 #__next {
-  font-family: 'SF Pro Text', 'SF Pro Icons', 'Helvetica Neue', 'Helvetica',
-    'Arial', sans-serif;
+  font-family: 'Inter Var', sans-serif;
+
   margin: 0;
   padding: 0;
   height: 100%;
@@ -30,7 +32,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'SF Pro Display', 'SF Pro Icons', 'Helvetica Neue', 'Helvetica';
+  font-family: 'Inter Var', sans-serif;
   margin: 0;
   padding: 0;
 }

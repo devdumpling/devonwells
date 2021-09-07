@@ -5,7 +5,7 @@ import { useRef, useState } from 'react';
 import styled from 'styled-components';
 
 import { a, config, useSpring } from '@react-spring/three';
-import { Sky, Stars } from '@react-three/drei';
+import { OrbitControls, Sky, Stars } from '@react-three/drei';
 import { Canvas, MeshProps, useFrame } from '@react-three/fiber';
 import matter from 'gray-matter';
 import { HomeProps } from 'src/types/home';
@@ -41,7 +41,18 @@ const BaseCanvas = () => {
         distance={45000}
         sunPosition={[2, 1, 1]}
         inclination={0}
-        azimuth={0.25}
+        azimuth={-180}
+      />
+      <OrbitControls
+        autoRotate
+        enablePan={true}
+        enableZoom={true}
+        maxPolarAngle={Math.PI / 2}
+        minPolarAngle={Math.PI / 2}
+        addEventListener={undefined}
+        hasEventListener={undefined}
+        removeEventListener={undefined}
+        dispatchEvent={undefined}
       />
     </Canvas>
   );

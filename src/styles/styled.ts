@@ -44,7 +44,6 @@ export const Card = styled.div`
   border-radius: 0.5rem;
   padding: 1rem;
   border: 10px solid #333;
-  background-color: papayawhip;
 `;
 
 export const BigText = styled.h2`
